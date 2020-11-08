@@ -7,15 +7,18 @@ import time
 import re
 import io
 
-urls = \
-    [\
-    "https://www.google.com/maps/place/UPA+24h+Boa+Vista/@-25.3857065,-49.2350658,17z/data=!4m7!3m6!1s0x94dce66f6ff5ece5:0x1b92d4f7158c1e76!8m2!3d-25.3857065!4d-49.2328771!9m1!1b1",\
-    "https://www.google.com/maps/place/UPA+Maracan%C3%A3/@-25.3614534,-49.1915863,17z/data=!4m7!3m6!1s0x0:0x8954c9bb8097d648!8m2!3d-25.3614534!4d-49.1893976!9m1!1b1"\
-    ]
+upas_urls = []
+
+read = open("upas.txt", 'r')
+i = 0
+for line in read:
+    upas_urls.append(line)
+
+read.close() 
 
 reviews = []
 
-for url in urls:
+for url in upas_urls:
 
     driver = webdriver.Chrome()
     driver.get(url)
