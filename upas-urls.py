@@ -15,9 +15,9 @@ time.sleep(5)
  
 
 hasNextPage = 0
+f = open("upasnames.txt", "a")
 
-while (hasNextPage < 6):
-   hasNextPage +=1
+while (hasNextPage <= 1):
    response = BeautifulSoup(driver.page_source, 'html.parser')
    upasDivs = []
    upasDivs = response.find_all('div', class_='section-result-title-container') 
@@ -25,14 +25,15 @@ while (hasNextPage < 6):
  
    for divs in upasDivs:
       upas_names = divs.find('h3', class_='section-result-title').text
-      print(upas_names)
+      f.write(upas_names + "\n")
 
    nextPage = driver.find_element_by_xpath('//*[@id="n7lv7yjyC35__section-pagination-button-next"]')
    time.sleep(10)
    
    if (nextPage.is_enabled()):
       nextPage.click()
-   else:
-      print(teste)
-print('fim')
+   else:      
+      hasNextPage +=1
+f.close()
+print("fim")
 
