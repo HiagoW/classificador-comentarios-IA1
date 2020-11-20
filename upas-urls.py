@@ -13,12 +13,26 @@ wait = WebDriverWait(driver, 10)
  
 time.sleep(5)
  
-response = BeautifulSoup(driver.page_source, 'html.parser')
-upasDivs = []
-upasDivs = response.find_all('div', class_='section-result-title-container')
+
+hasNextPage = 0
+
+while (hasNextPage < 6):
+   hasNextPage +=1
+   response = BeautifulSoup(driver.page_source, 'html.parser')
+   upasDivs = []
+   upasDivs = response.find_all('div', class_='section-result-title-container') 
+   upas_names = []
  
-upas_names = []
- 
-for divs in upasDivs:
-   upas_names = divs.find('h3', class_='section-result-title').text
-   print(upas_names)
+   for divs in upasDivs:
+      upas_names = divs.find('h3', class_='section-result-title').text
+      print(upas_names)
+
+   nextPage = driver.find_element_by_xpath('//*[@id="n7lv7yjyC35__section-pagination-button-next"]')
+   time.sleep(10)
+   
+   if (nextPage.is_enabled()):
+      nextPage.click()
+   else:
+      print(teste)
+print('fim')
+
