@@ -4,6 +4,8 @@ from selenium import webdriver
 import time
 from bs4 import BeautifulSoup
 
+indexCurrentDiv = 0
+
 url_upa_search = "https://www.google.com.br/maps/search/upa/@-25.4473693,-49.2466962,12z"
  
 driver = webdriver.Chrome()
@@ -16,24 +18,47 @@ time.sleep(5)
 
 hasNextPage = 0
 f = open("upasnames.txt", "a")
+f2 = open("upas.txt", "a")
 
 while (hasNextPage <= 1):
-   response = BeautifulSoup(driver.page_source, 'html.parser')
-   upasDivs = []
-   upasDivs = response.find_all('div', class_='section-result-title-container') 
+   upasDivs = driver.find_elements_by_class_name("section-result")
    upas_names = []
  
-   for divs in upasDivs:
-      upas_names = divs.find('h3', class_='section-result-title').text
+   while(indexCurrentDiv<len(upasDivs)):
+
+      currentDiv = upasDivs[indexCurrentDiv]
+      upas_names = currentDiv.find_element_by_class_name('section-result-title').text
       f.write(upas_names + "\n")
 
+      driver.execute_script("arguments[0].click();", currentDiv)
+      time.sleep(3)
+
+      commentsButton = driver.find_element_by_class_name('allxGeDnJMl__button')
+      driver.execute_script("arguments[0].click();", commentsButton)
+      time.sleep(3)
+
+      strUrl = driver.current_url
+      f2.write(strUrl + "\n")
+
+      while not driver.current_url.startswith('https://www.google.com.br/maps/search/upa/'):
+         driver.execute_script("window.history.go(-1)")
+         time.sleep(3)
+
+      indexCurrentDiv+=1
+      upasDivs = driver.find_elements_by_class_name("section-result")
+
+   indexCurrentDiv=0
    nextPage = driver.find_element_by_xpath('//*[@id="n7lv7yjyC35__section-pagination-button-next"]')
-   time.sleep(10)
+
+
+   time.sleep(5)
    
    if (nextPage.is_enabled()):
       nextPage.click()
    else:      
       hasNextPage +=1
+
 f.close()
+f2.close()
 print("fim")
 
