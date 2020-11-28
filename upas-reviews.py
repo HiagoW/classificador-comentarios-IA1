@@ -17,10 +17,10 @@ for line in read:
 read.close() 
 
 reviews = []
+driver = webdriver.Chrome()
 
 for url in upas_urls:
 
-    driver = webdriver.Chrome()
     driver.get(url)
 
     wait = WebDriverWait(driver, 10)
@@ -74,7 +74,15 @@ for url in upas_urls:
         # Salva a qtd de estrelas
         rating = r.find('span', class_='section-review-stars')['aria-label']
         rating = re.sub("[^0-9]", "", rating)
-        
+        rating = int(rating)
+        # Reclassificação: 1 - Positivo; 0 - Negativo; -1 - Indeterminado
+        if rating == 5:
+            rating = 1
+        elif rating == 1 or rating == 2:
+            rating = 0
+        else:
+            rating = -1
+
         # Salva comentario se não for
         try:
             review_text = r.find('span', class_='section-review-text').text
