@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.tree import DecisionTreeClassifier
 from nltk.corpus import stopwords
 import csv
+import numpy as np
 
 stemmer = SnowballStemmer("portuguese")
 with open('output.csv', newline='\n',encoding="utf-8") as csvfile:
@@ -68,7 +69,7 @@ print(clf.predict(rowTest))
 Teste usando CountVectorizer (Parece ser melhor)
 '''
 
-count_vect = CountVectorizer()
+count_vect = CountVectorizer(stop_words=stopwords.words('portuguese'))
 features_train, features_test, labels_train, labels_test = train_test_split(review, rating, test_size=0.1, random_state=42)
 features_train = count_vect.fit_transform(features_train)
 features_test = count_vect.transform(features_test).toarray()
