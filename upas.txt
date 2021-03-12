@@ -7,3 +7,10 @@ https://www.google.com.br/maps/place/UPA+24h+Piraquara/@-25.4579915,-49.1018386,
 https://www.google.com.br/maps/place/Unidade+de+Pronto+Atendimento+24+Horas+-+UPA+24H+Pinhais/@-25.4473693,-49.2466962,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dcef971ff4157f:0x86fae89f2a8b8305!8m2!3d-25.4342908!4d-49.1917991!9m1!1b1
 https://www.google.com.br/maps/place/Unidade+de+Pronto+Atendimento+-+UPA+Afonso+Pena/@-25.4977031,-49.1719904,17z/data=!3m1!4b1!4m10!1m2!2m1!1supa!3m6!1s0x94dcf0f96d9866ff:0xe30de18be6e264b0!8m2!3d-25.4977031!4d-49.1698017!9m1!1b1
 https://www.google.com.br/maps/place/UPA+Cajuru/@-25.469555,-49.2085857,17z/data=!3m1!4b1!4m10!1m2!2m1!1supa!3m6!1s0x94dcfb83a5825d6f:0x74d47c51dfc88762!8m2!3d-25.469555!4d-49.206397!9m1!1b1
+https://www.google.com.br/maps/place/UPA+Campo+Comprido/@-25.4422125,-49.4099726,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dce2249b5156e5:0xc7248f89f7a56776!8m2!3d-25.4422125!4d-49.3399348!9m1!1b1
+https://www.google.com.br/maps/place/UPA+CIC/@-25.4972333,-49.4090832,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dce2c154972fe3:0xea2af0a072fadd44!8m2!3d-25.4972333!4d-49.3390454!9m1!1b1
+https://www.google.com.br/maps/place/UPA+Fazendinha/@-25.4776745,-49.3978611,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dce31cb2884a0b:0xcc64dfe8c3db7a5f!8m2!3d-25.4776745!4d-49.3278233!9m1!1b1
+https://www.google.com.br/maps/place/UPA+24h+Boa+Vista/@-25.4473693,-49.2466962,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dce66f6ff5ece5:0x1b92d4f7158c1e76!8m2!3d-25.3857065!4d-49.2328771!9m1!1b1
+https://www.google.com.br/maps/place/UPA+Cajuru/@-25.4473693,-49.2466962,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dcfb83a5825d6f:0x74d47c51dfc88762!8m2!3d-25.469555!4d-49.206397!9m1!1b1
+https://www.google.com.br/maps/place/UPA+Pinheirinho/@-25.5155055,-49.364917,12z/data=!4m10!1m2!2m1!1supa!3m6!1s0x94dcfcbd3a3e7f27:0x606889f2b4854176!8m2!3d-25.5155055!4d-49.2948792!9m1!1b1
+https://www.google.com.br/maps/place/UPA+Campo+Comprido/@-25.4422524,-49.40997,12z/data=!4m8!1m2!2m1!1supa!3m4!1s0x94dce37cd25a646b:0x5d5d3b2a6799fa44!8m2!3d-25.4422524!4d-49.3399322
