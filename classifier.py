@@ -7,6 +7,9 @@ from nltk.corpus import stopwords
 import csv
 import numpy as np
 import io
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import multilabel_confusion_matrix
+from sklearn.metrics import accuracy_score
 
 stemmer = SnowballStemmer("portuguese")
 with open('output.csv', newline='\n',encoding="utf-8") as csvfile:
@@ -40,10 +43,15 @@ for row in data:
             row2 += stemmer.stem(word) + ' '
         originalToPredict.append(row[1])
         toPredict.append(row2)
+print(f'Total {len(data)}')
+print(f'Treino e Teste {len(review)}')
+print(f'Para classificar {len(toPredict)}')
 '''
 Divide em dados de treino e teste
 '''
-features_train, features_test, labels_train, labels_test = train_test_split(review, rating, test_size=0.1, random_state=42)
+features_train, features_test, labels_train, labels_test = train_test_split(review, rating, test_size=0.3, random_state=42)
+print(f'Treino {len(features_train)}')
+print(f'Teste {len(features_test)}')
 # '''
 # Aplica o algoritmo TFIDF para calcular
 # a importância de um termo na frase
@@ -85,6 +93,19 @@ features_test = count_vect.transform(features_test).toarray()
 clf = DecisionTreeClassifier()
 clf.fit(features_train, labels_train)
 print(clf.score(features_test, labels_test))
+
+predicts = clf.predict(features_test)
+print(accuracy_score(labels_test, predicts))
+print(classification_report(labels_test,predicts))
+
+mcm = multilabel_confusion_matrix(labels_test, predicts)
+tn = mcm[:, 0, 0]
+tp = mcm[:, 1, 1]
+fn = mcm[:, 1, 0]
+fp = mcm[:, 0, 1]
+print(tp / (tp + fn))
+
+print(confusion_matrix(labels_test, predicts))
 
 '''test = 'essa upa é horrível nunca mais volto'
 rowTest = ''
